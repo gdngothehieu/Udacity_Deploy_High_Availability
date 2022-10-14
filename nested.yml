@@ -8,7 +8,7 @@ Resources:
   NetworkStack:
     Type: "AWS::CloudFormation::Stack"
     Properties:
-      TemplateURL: project2-network-Stack.yml
+      TemplateURL: network.yml
       Parameters:
         EnvironmentName: "super-aws-s3-udagram"
         VpcCIDR: "10.0.0.0/16"
@@ -20,7 +20,7 @@ Resources:
   ServerStack:
     Type: "AWS::CloudFormation::Stack"
     Properties:
-      TemplateURL: project2-servers-Stack.yml
+      TemplateURL: servers.yml
       Parameters:
         EnvironmentName: "super-aws-s3-udagram"
         ASGMinSize: "4"
