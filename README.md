@@ -14,3 +14,5 @@ To Update Project:
 To Delete Project:
 
 \$./delete.sh
+Url:
+http://super-aws-s3-udagram.s3-website-us-east-1.amazonaws.com/
