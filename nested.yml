@@ -13,9 +13,9 @@ Resources:
         EnvironmentName: "super-aws-s3-udagram"
         VpcCIDR: "10.0.0.0/16"
         PublicSubnet1CIDR: "10.0.0.0/24"
-        PublicSubnet2CIDR: "10.0.1.0/24"
+        PublicSubneT2CIDR: "10.0.1.0/24"
         PrivateSubnet1CIDR: "10.0.2.0/24"
-        PrivateSubnet2CIDR: "10.0.3.0/24"
+        PrivateSubneT2CIDR: "10.0.3.0/24"
 
   ServerStack:
     Type: "AWS::CloudFormation::Stack"
@@ -26,7 +26,7 @@ Resources:
         ASGMinSize: "4"
         ASGMaxSize: "8"
         EC2ImageId: "ami-0729e439b6769d6ab"
-        EC2InstanceType: "t2.micro"
+        EC2InstanceType: "t3.small "
         EBSVolumeSize: "10"
         # Dependencies
         VPC: !GetAtt NetworkStack.Outputs.VPC
@@ -36,6 +36,6 @@ Resources:
         PublicSubnets: !GetAtt NetworkStack.Outputs.PublicSubnets
         PrivateSubnets: !GetAtt NetworkStack.Outputs.PrivateSubnets
         PublicSubnet1: !GetAtt NetworkStack.Outputs.PublicSubnet1
-        PublicSubnet2: !GetAtt NetworkStack.Outputs.PublicSubnet2
+        PublicSubneT2: !GetAtt NetworkStack.Outputs.PublicSubneT2
         PrivateSubnet1: !GetAtt NetworkStack.Outputs.PrivateSubnet1
-        PrivateSubnet2: !GetAtt NetworkStack.Outputs.PrivateSubnet2
+        PrivateSubneT2: !GetAtt NetworkStack.Outputs.PrivateSubneT2

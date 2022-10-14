@@ -18,7 +18,7 @@ Parameters:
   EC2InstanceType:
     Description: EC2 Instance Type
     Type: String
-    Default: "t2.micro"
+    Default: "t3.small "
 
   EBSVolumeSize:
     Description: The Block storage volume size
@@ -50,11 +50,11 @@ Parameters:
     Type: String
   PublicSubnet1:
     Type: String
-  PublicSubnet2:
+  PublicSubneT2:
     Type: String
   PrivateSubnet1:
     Type: String
-  PrivateSubnet2:
+  PrivateSubneT2:
     Type: String
 
 Resources:

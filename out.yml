@@ -1,66 +1,66 @@
-
-Description: "Nested Stack to deploy network stack and servers stack with  each dependencies,\
+Description:
+  "Nested Stack to deploy network stack and servers stack with  each dependencies,\
   \ more practical to run all resources. \nBy Ngo The Hieu\n"
 Resources:
   NetworkStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://s3.us-east-1.amazonaws.com/super-aws-s3-udagram/d8d18edae24d0524d5a907bf074dd601.template
+      TemplateURL: https://s3.us-east-1.amazonaws.com/super-aws-s3-udagram/2995d9b3b4893ccf40d50f8245defb27.template
       Parameters:
         EnvironmentName: super-aws-s3-udagram
         VpcCIDR: 10.0.0.0/16
         PublicSubnet1CIDR: 10.0.0.0/24
-        PublicSubnet2CIDR: 10.0.1.0/24
+        PublicSubneT2CIDR: 10.0.1.0/24
         PrivateSubnet1CIDR: 10.0.2.0/24
-        PrivateSubnet2CIDR: 10.0.3.0/24
+        PrivateSubneT2CIDR: 10.0.3.0/24
   ServerStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://s3.us-east-1.amazonaws.com/super-aws-s3-udagram/2d7c742c236d5b1913eeaaacf08fe28c.template
+      TemplateURL: https://s3.us-east-1.amazonaws.com/super-aws-s3-udagram/0a71aeb21f179e8406e00253352ccda7.template
       Parameters:
         EnvironmentName: super-aws-s3-udagram
-        ASGMinSize: '4'
-        ASGMaxSize: '8'
+        ASGMinSize: "4"
+        ASGMaxSize: "8"
         EC2ImageId: ami-0729e439b6769d6ab
-        EC2InstanceType: t2.micro
-        EBSVolumeSize: '10'
+        EC2InstanceType: t3.small
+        EBSVolumeSize: "10"
         VPC:
           Fn::GetAtt:
-          - NetworkStack
-          - Outputs.VPC
+            - NetworkStack
+            - Outputs.VPC
         VPCPublicRouteTable:
           Fn::GetAtt:
-          - NetworkStack
-          - Outputs.VPCPublicRouteTable
+            - NetworkStack
+            - Outputs.VPCPublicRouteTable
         VPCPrivateRouteTable1:
           Fn::GetAtt:
-          - NetworkStack
-          - Outputs.VPCPrivateRouteTable1
+            - NetworkStack
+            - Outputs.VPCPrivateRouteTable1
         VPCPrivateRouteTable2:
           Fn::GetAtt:
-          - NetworkStack
-          - Outputs.VPCPrivateRouteTable2
+            - NetworkStack
+            - Outputs.VPCPrivateRouteTable2
         PublicSubnets:
           Fn::GetAtt:
-          - NetworkStack
-          - Outputs.PublicSubnets
+            - NetworkStack
+            - Outputs.PublicSubnets
         PrivateSubnets:
           Fn::GetAtt:
-          - NetworkStack
-          - Outputs.PrivateSubnets
+            - NetworkStack
+            - Outputs.PrivateSubnets
         PublicSubnet1:
           Fn::GetAtt:
-          - NetworkStack
-          - Outputs.PublicSubnet1
-        PublicSubnet2:
+            - NetworkStack
+            - Outputs.PublicSubnet1
+        PublicSubneT2:
           Fn::GetAtt:
-          - NetworkStack
-          - Outputs.PublicSubnet2
+            - NetworkStack
+            - Outputs.PublicSubneT2
         PrivateSubnet1:
           Fn::GetAtt:
-          - NetworkStack
-          - Outputs.PrivateSubnet1
-        PrivateSubnet2:
+            - NetworkStack
+            - Outputs.PrivateSubnet1
+        PrivateSubneT2:
           Fn::GetAtt:
-          - NetworkStack
-          - Outputs.PrivateSubnet2
+            - NetworkStack
+            - Outputs.PrivateSubneT2
